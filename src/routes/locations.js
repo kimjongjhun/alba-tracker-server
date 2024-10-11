@@ -7,9 +7,11 @@ const supabase = require("../../db");
  */
 
 router.get("/all", async (req, res) => {
-  const { data: clients, error } = await supabase.from("clients").select("*");
+  const { data: locations, error } = await supabase
+    .from("locations")
+    .select("*");
 
-  res.send({ message: "hit success 2", data: clients, error: error });
+  res.send({ message: "hit success 2", data: locations, error: error });
 });
 
 module.exports = router;
